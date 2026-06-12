@@ -10,21 +10,19 @@ import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
 import com.example.bloodpressure.ui.theme.BPColors
 
-object WBTheme {
+object BPTheme {
     val colors: BPColors
         @Composable @ReadOnlyComposable get() = LocalBPColors.current
 
-    val typography: WBTypography
-        @Composable get() = wbTypography
+    val typography: BPTypography
+        @Composable get() = bpTypography
 
-    val shapes: WbShape
-        @Composable @ReadOnlyComposable get() = LocalWBShape.current
 
     val isDarkTheme: Boolean
         @Composable @ReadOnlyComposable get() = LocalIsDarkTheme.current
 
     val language: Languages
-        @Composable @ReadOnlyComposable get() = LocalWBLanguage.current
+        @Composable @ReadOnlyComposable get() = LocalBPLanguage.current
 }
 
 val LocalBPLanguage: ProvidableCompositionLocal<Languages> =
@@ -37,11 +35,9 @@ val LocalBPColors: ProvidableCompositionLocal<BPColors> =
 @Composable
 fun BPTheme() {
     CompositionLocalProvider(
-        LocalWBColors provides colors,
+        LocalBPColors provides colors,
         LocalTextSelectionColors provides selectionColors,
-        LocalWBLanguage provides language,
-//        LocalIndication provides rippleIndication,
-        LocalIsDarkTheme provides isDarkTheme,
+        LocalBPLanguage provides language,
         content = content
     )
 }
