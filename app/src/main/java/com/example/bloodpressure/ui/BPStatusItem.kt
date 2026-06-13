@@ -20,6 +20,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.bloodpressure.BPStatus
+import com.example.bloodpressure.ui.theme.BPTheme
 
 @Composable
 fun BPStatusItemBig(
@@ -46,7 +47,7 @@ fun BPStatusItemBig(
             ,
             text = bpStatus.text,
             color = bpStatus.textColor,
-            style = MaterialTheme.typography.headlineLarge
+            style = BPTheme.typography.bold24
         )
     }
 }
@@ -69,9 +70,9 @@ fun BPStatusItemSmall(
                     vertical = 4.dp
                 )
             ,
-            text = bpStatus.text,
+            text = bpStatus.text.uppercase(),
             color = bpStatus.textColor,
-            style = MaterialTheme.typography.titleSmall
+            style = BPTheme.typography.bold12
         )
     }
 }

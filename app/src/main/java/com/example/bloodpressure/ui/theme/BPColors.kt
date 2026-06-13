@@ -4,8 +4,10 @@ import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 
 data object BPColors {
-    val surfaceLightGreen: Color = Color(0xFFF0FDF4)
-    val surfaceDarkGreen: Color = Color(0xFFD0FAE5)
+    val surfaceBg0: Color = Color(0xFFF0FDF4)
+    val surfaceBg20: Color = Color(0xFFEAFCF1)
+    val surfaceBg40: Color = Color(0xFFE2FCED)
+    val surfaceBg100: Color = Color(0xFFD0FAE5)
 
     val bgPrimary: Color = Color(0xFFECFDF5)
     val bgSecondary: Color = Color(0xFFF9FAFB)
@@ -24,12 +26,4 @@ data object BPColors {
 //    val cardBgPeach: Color
 
     val secondaryBlack: Color = Color(0xFF162456)
-    // Градиент с остановками
-    val verticalGradient = Brush.verticalGradient(
-        colorStops = arrayOf(
-            0.0f to surfaceLightGreen,   // в самом верху
-            0.2f to surfaceDarkGreen,    // на 20% высоты уже тёмный
-            1.0f to surfaceDarkGreen     // и до низа остаётся тёмным
-        )
-    )
 }
