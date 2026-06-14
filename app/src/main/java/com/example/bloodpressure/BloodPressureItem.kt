@@ -6,7 +6,8 @@ data class BPItem(
     val sys: Int = 120,
     val dia: Int = 80,
     val pulse: Int = 60,
-    val dateTime: String = "",
+    val date: String = "18 May, 2026",
+    val time: String = "22:04",
     val note: String = "",
     val atmPressure: Int = 760,
     val bpStatus: BPStatus = BPStatus.NORMAL

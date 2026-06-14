@@ -2,10 +2,12 @@ package com.example.bloodpressure.ui.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -30,39 +32,62 @@ import com.example.bloodpressure.BPStatus
 import com.example.bloodpressure.ui.BPIcons
 import com.example.bloodpressure.ui.BPScreen
 import com.example.bloodpressure.ui.BPStatusItemBig
+import com.example.bloodpressure.ui.WhiteCard
 import com.example.bloodpressure.ui.icons.Calendar
 import com.example.bloodpressure.ui.icons.Heart
 import com.example.bloodpressure.ui.icons.Watch
+import com.example.bloodpressure.ui.theme.BPTheme
 
 @Preview
 @Composable
 fun HomeScreen() {
     BPScreen(
+        modifier = Modifier,
         content = {
-            LastMeasure(bpItem = BPItem())
+            val item = BPItem()
+
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(vertical = 24.dp)
+            ) {
+                TopBar()
+                Spacer(Modifier.height(32.dp))
+                LastMeasureCard(
+                    modifier = Modifier.padding(horizontal = 16.dp),
+                    bpItem = item
+                )
+            }
         }
     )
 }
+
 @Composable
-fun LastMeasure(
+private fun TopBar(
+
+) {
+    Text(
+        modifier = Modifier.padding(horizontal = 24.dp),
+        text = "Hello, David",
+        color = BPTheme.colors.textNavy162456,
+        style = BPTheme.typography.extraBold30
+    )
+    Spacer(Modifier.height(8.dp))
+    Text(
+        modifier = Modifier.padding(horizontal = 24.dp),
+        text = "Here is your latest health update.",
+        color = BPTheme.colors.textDarkGreen007A55,
+        style = BPTheme.typography.regular18
+    )
+}
+
+@Composable
+private fun LastMeasureCard(
     modifier: Modifier = Modifier,
     bpItem: BPItem
 ) {
-    Card(
+    WhiteCard(
         modifier = modifier
-            .background(
-                brush = Brush.verticalGradient(
-                    colors = listOf(
-                        Color(0xFFF0FDF4),
-                        Color(0xFFD0FAE5)
-                    )
-                )
-            ),
-        shape = RoundedCornerShape(24.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-//        colors = CardDefaults.cardColors(
-//            containerColor = MaterialTheme.colorScheme.surfaceContainer
-//        )
     ) {
         Column(
             modifier = Modifier.padding(24.dp)
@@ -119,24 +144,34 @@ fun LastMeasure(
             )
             Spacer(Modifier.height(24.dp))
             Row(
-
+                modifier = Modifier
+                    .fillMaxWidth()
+                ,
+                horizontalArrangement = Arrangement.SpaceAround
             ) {
                 SquareCard(
                     icon = BPIcons.Heart,
                     iconColor = Color.Red,
                     value = bpItem.pulse.toString(),
-                    description = bpItem.note,
-                    descriptionColor = Color.Green,
-                    bgColor = Color.Black,
+                    description = "Pulse (BPM)".uppercase(),
+                    descriptionColor = BPTheme.colors.textDarkGreen007A55,
+                    bgColor = BPTheme.colors.strokeCard
+                )
+                SquareCard(
+                    icon = BPIcons.Heart,
+                    iconColor = Color.Red,
+                    value = bpItem.pulse.toString(),
+                    description = "Atm (mmHg)".uppercase(),
+                    descriptionColor = BPTheme.colors.textDarkGreen007A55,
+                    bgColor = BPTheme.colors.strokeCard
                 )
             }
-
         }
     }
 }
 
 @Composable
-fun SquareCard(
+private fun SquareCard(
     modifier: Modifier = Modifier,
     icon: ImageVector,
     iconColor: Color,
@@ -145,31 +180,37 @@ fun SquareCard(
     descriptionColor: Color,
     bgColor: Color
 ) {
-    Box(
-        modifier = modifier
-            .clip(shape = RoundedCornerShape(16.dp))
-            .background(bgColor)
-            .padding(16.dp)
-        ,
-        contentAlignment = Alignment.Center
+    WhiteCard(
+        modifier = modifier,
+        strokeColor = null,
+        elevation = 0.dp,
+        color = bgColor,
+        cornerRadius = 16.dp
     ) {
         Column(
-
+            modifier = Modifier
+                .padding(
+                    vertical = 16.dp,
+                    horizontal = 24.dp
+                ),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Image(
                 imageVector = icon,
                 contentDescription = null,
                 colorFilter = ColorFilter.tint(iconColor)
             )
+            Spacer(Modifier.width(10.dp))
             Text(
                 text = value,
+                style = BPTheme.typography.bold30,
                 color = Color.Black,
-                style = MaterialTheme.typography.titleSmall
             )
+            Spacer(Modifier.width(8.dp))
             Text(
                 text = description,
                 color = descriptionColor,
-                style = MaterialTheme.typography.titleSmall
+                style = BPTheme.typography.medium14,
             )
         }
     }
