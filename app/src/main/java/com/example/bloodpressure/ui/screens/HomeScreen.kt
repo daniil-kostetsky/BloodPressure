@@ -1,9 +1,7 @@
 package com.example.bloodpressure.ui.screens
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -12,16 +10,10 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
-import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
@@ -34,8 +26,12 @@ import com.example.bloodpressure.ui.BPScreen
 import com.example.bloodpressure.ui.BPStatusItemBig
 import com.example.bloodpressure.ui.WhiteCard
 import com.example.bloodpressure.ui.icons.Calendar
+import com.example.bloodpressure.ui.icons.Chart
 import com.example.bloodpressure.ui.icons.Heart
+import com.example.bloodpressure.ui.icons.Monometer
 import com.example.bloodpressure.ui.icons.Watch
+import com.example.bloodpressure.ui.theme.BPColors.iconGreenBlue
+import com.example.bloodpressure.ui.theme.BPColors.textNavy162456
 import com.example.bloodpressure.ui.theme.BPTheme
 
 @Preview
@@ -90,28 +86,34 @@ private fun LastMeasureCard(
         modifier = modifier
     ) {
         Column(
-            modifier = Modifier.padding(24.dp)
+            modifier = Modifier.padding(24.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Row {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
                 Row(
-                    modifier = Modifier
+                    verticalAlignment = Alignment.CenterVertically
                 ) {
                     Image(
-                        imageVector = BPIcons.Heart,
+                        imageVector = BPIcons.Chart,
                         contentDescription = null,
-//                    colorFilter = ColorFilter.tint()
+                        colorFilter = ColorFilter.tint(iconGreenBlue)
                     )
                     Spacer(Modifier.width(8.dp))
-
                     Text(
-                        "Latest measure",
+                        "Latest reading",
+                        style = BPTheme.typography.bold20,
+                        color = BPTheme.colors.textPrimary,
                     )
-
-
                 }
                 Spacer(Modifier.width(24.dp))
+                //date time
                 Column(
-                    modifier = Modifier
+                    modifier = Modifier,
+                    horizontalAlignment = Alignment.End
                 ) {
                     Row(
                         verticalAlignment = Alignment.CenterVertically
@@ -119,10 +121,14 @@ private fun LastMeasureCard(
                         Image(
                             imageVector = BPIcons.Calendar,
                             contentDescription = null,
-//                    colorFilter = ColorFilter.tint()
+                            colorFilter = ColorFilter.tint(BPTheme.colors.textGrey6A7282)
                         )
                         Spacer(Modifier.width(4.dp))
-                        Text("Jun 1, 2026")
+                        Text(
+                            text = bpItem.date,
+                            color = BPTheme.colors.textGrey6A7282,
+                            style = BPTheme.typography.regular14
+                        )
                     }
                     Row(
                         verticalAlignment = Alignment.CenterVertically
@@ -130,14 +136,50 @@ private fun LastMeasureCard(
                         Image(
                             imageVector = BPIcons.Watch,
                             contentDescription = null,
-//                    colorFilter = ColorFilter.tint()
+                            colorFilter = ColorFilter.tint(BPTheme.colors.textGrey6A7282)
                         )
                         Spacer(Modifier.width(4.dp))
-                        Text("9:45 PM")
+                        Text(
+                            text = bpItem.time,
+                            color = BPTheme.colors.textGrey6A7282,
+                            style = BPTheme.typography.regular14
+                        )
                     }
                 }
             }
             Spacer(Modifier.height(24.dp))
+            Row(
+                verticalAlignment = Alignment.Bottom
+            ) {
+                Text(
+                    text = bpItem.sys.toString(),
+                    color = BPTheme.colors.textPrimary,
+                    style = BPTheme.typography.black60,
+                )
+                Spacer(Modifier.width(3.dp))
+                Text(
+                    modifier = Modifier.padding(bottom = 9.dp),
+                    text = "/",
+                    color = BPTheme.colors.textGrey6A7282,
+                    style = BPTheme.typography.bold36,
+                )
+                Spacer(Modifier.width(3.dp))
+                Text(
+                    modifier = Modifier.padding(bottom = 2.dp),
+                    text = bpItem.dia.toString(),
+                    color = BPTheme.colors.textPrimaryLight,
+                    style = BPTheme.typography.extraBold48,
+                )
+                Spacer(Modifier.width(12.dp))
+                Text(
+                    modifier = Modifier.padding(bottom = 10.dp),
+                    text = "mmHg",
+                    color = BPTheme.colors.textGrey6A7282,
+                    style = BPTheme.typography.medium18,
+                )
+            }
+
+            Spacer(Modifier.height(16.dp))
             BPStatusItemBig(
                 modifier = Modifier.fillMaxWidth(),
                 bpStatus = BPStatus.HYPERTENSION_1
@@ -145,25 +187,44 @@ private fun LastMeasureCard(
             Spacer(Modifier.height(24.dp))
             Row(
                 modifier = Modifier
-                    .fillMaxWidth()
-                ,
+                    .fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
                 SquareCard(
                     icon = BPIcons.Heart,
-                    iconColor = Color.Red,
+                    iconColor = BPTheme.colors.iconRedHeart,
                     value = bpItem.pulse.toString(),
                     description = "Pulse (BPM)".uppercase(),
                     descriptionColor = BPTheme.colors.textDarkGreen007A55,
                     bgColor = BPTheme.colors.strokeCard
                 )
                 SquareCard(
-                    icon = BPIcons.Heart,
-                    iconColor = Color.Red,
-                    value = bpItem.pulse.toString(),
+                    icon = BPIcons.Monometer,
+                    iconColor = BPTheme.colors.lightBlue51A2FF,
+                    value = bpItem.atmPressure.toString(),
                     description = "Atm (mmHg)".uppercase(),
-                    descriptionColor = BPTheme.colors.textDarkGreen007A55,
-                    bgColor = BPTheme.colors.strokeCard
+                    descriptionColor = BPTheme.colors.blue1447E6,
+                    bgColor = BPTheme.colors.bgBlue
+                )
+            }
+            if (bpItem.note.isNotBlank()) {
+                Spacer(Modifier.height(16.dp))
+                WhiteCard(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                    ,
+                    color = BPTheme.colors.bgSecondary,
+                    strokeColor = BPTheme.colors.strokeGrey,
+                    elevation = 0.dp,
+                    cornerRadius = 14.dp,
+                    content = {
+                        Text(
+                            modifier = Modifier.padding(16.dp),
+                            text = "\"${bpItem.note}\"",
+                            color = BPTheme.colors.textPrimaryLight,
+                            style = BPTheme.typography.regularItalic16,
+                        )
+                    }
                 )
             }
         }
@@ -204,7 +265,7 @@ private fun SquareCard(
             Text(
                 text = value,
                 style = BPTheme.typography.bold30,
-                color = Color.Black,
+                color = textNavy162456,
             )
             Spacer(Modifier.width(8.dp))
             Text(

@@ -15,6 +15,7 @@ data object BPColors {
     val bg: Color = Color(0xFFF9FAFB)
 
     val iconRedHeart: Color = Color(0xFFFF2056)
+    val iconGreenBlue: Color = Color(0xFF009966)
 
     val textPrimary: Color = Color(0xFF101828)
     val textPrimaryLight: Color = Color(0xFF364153)
@@ -30,6 +31,7 @@ data object BPColors {
     val white: Color = Color(0xFFFFFFFF)
 
     val strokeCard: Color = Color(0xFFECFDF5)
+    val strokeGrey: Color = Color(0xFFECFDF5)
 
     val textNavy162456: Color = Color(0xFF162456)
     val textDarkGreen007A55: Color = Color(0xFF007A55)
@@ -37,4 +39,7 @@ data object BPColors {
     val textGrey6A7282: Color = Color(0xFF6A7282)
 
     val iconRedFF637E: Color = Color(0xFFFF637E)
+    val lightBlue51A2FF: Color = Color(0xFF51A2FF)
+    val blue1447E6: Color = Color(0xFF1447E6)
+
 }
