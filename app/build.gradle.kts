@@ -2,6 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.kotlinx.serialization)
+    alias(libs.plugins.ksp)
 }
 
 android {
@@ -48,8 +49,25 @@ dependencies {
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.compose.foundation.layout)
+
     implementation(libs.com.arkivanov.decompose)
+    implementation(libs.com.arkivanov.jetpack)
+
+    implementation(libs.com.arkivanov.mvikotlin)
+    implementation(libs.com.arkivanov.mvikotlin.main)
+    implementation(libs.com.arkivanov.mvikotlin.extcoroutines)
+
+    implementation(libs.room.coroutine)
+    ksp(libs.room.compiler)
+
+    implementation(libs.dagger.core)
+    ksp(libs.dagger.compiler)
+
+    implementation(libs.retrofit.core)
+    implementation(libs.retrofit.gson)
+
     implementation(libs.kotlinx.serialization.json)
+    implementation(libs.androidx.compose.foundation)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)

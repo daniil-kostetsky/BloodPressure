@@ -4,8 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.bloodpressure.ui.screens.AddNewRecord
-import com.example.bloodpressure.ui.screens.HomeScreen
+import com.example.bloodpressure.presentation.screens.addEditRecord.AddEditRecordScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,7 +12,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
 //            HomeScreen()
-            AddNewRecord()
+            AddEditRecordScreen()
         }
     }
 }

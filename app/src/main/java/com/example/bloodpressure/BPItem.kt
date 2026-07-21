@@ -15,21 +15,7 @@ data class BPItem(
     val atmPressure: Int,
     val bpStatus: BPStatus,
 ) {
-    companion object {
-        fun initState(): BPItem =
-            BPItem(
-                id = 0,
-                sys = 120,
-                dia = 80,
-                pulse = 60,
-                date = "18 May, 2026",
-                time = "22:04",
-                note = "empty to do",
-                atmPressure = 760,
-                bpStatus = BPStatus.NORMAL
-            )
 
-    }
 }
 //enum class BPStatusLevel(
 //    val label: String,
