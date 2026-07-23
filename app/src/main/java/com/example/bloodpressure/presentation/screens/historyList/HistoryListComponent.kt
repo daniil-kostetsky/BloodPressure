@@ -1,6 +1,6 @@
 package com.example.bloodpressure.presentation.screens.historyList
 
-import com.example.bloodpressure.BPItem
+import com.example.bloodpressure.domain.entity.BPItem
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.serialization.Serializable
 

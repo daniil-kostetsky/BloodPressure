@@ -1,6 +1,6 @@
 package com.example.bloodpressure.presentation.screens.historyList
 
-import com.example.bloodpressure.BPItem
+import com.example.bloodpressure.domain.entity.BPItem
 
 interface HistoryListStore {
 

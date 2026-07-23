@@ -1,7 +1,7 @@
 package com.example.bloodpressure.presentation.screens.addEditRecord
 
 import com.arkivanov.mvikotlin.core.store.Store
-import com.example.bloodpressure.BPStatus
+import com.example.bloodpressure.domain.entity.BPStatus
 
 interface AddEditRecordStore: Store<AddEditRecordStore.Intent,AddEditRecordStore.State, AddEditRecordStore.Label> {
 

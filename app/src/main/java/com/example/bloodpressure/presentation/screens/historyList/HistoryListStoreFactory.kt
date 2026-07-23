@@ -5,7 +5,7 @@ import com.arkivanov.mvikotlin.core.store.Store
 import com.arkivanov.mvikotlin.core.store.StoreFactory
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineBootstrapper
 import com.arkivanov.mvikotlin.extensions.coroutines.CoroutineExecutor
-import com.example.bloodpressure.BPItem
+import com.example.bloodpressure.domain.entity.BPItem
 import com.example.bloodpressure.presentation.historyList.HistoryListStore.Intent
 import kotlinx.coroutines.launch
 

@@ -1,6 +1,5 @@
 package com.example.bloodpressure.presentation.screens.addEditRecord
 
-import com.example.bloodpressure.BPItem
 import kotlinx.coroutines.flow.StateFlow
 
 interface AddEditRecordComponent { // TODO maybe join add and edit, only change null or not null paraeter

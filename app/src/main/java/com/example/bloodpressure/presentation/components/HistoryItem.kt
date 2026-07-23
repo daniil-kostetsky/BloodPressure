@@ -1,4 +1,4 @@
-package com.example.bloodpressure.presentation.ui
+package com.example.bloodpressure.presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -15,13 +15,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.ColorFilter
-import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.bloodpressure.BPItem
+import com.example.bloodpressure.domain.entity.BPItem
 import com.example.bloodpressure.presentation.ui.icons.BPIcons
+import com.example.bloodpressure.presentation.ui.theme.BPTheme
 import com.example.bloodpressure.ui.icons.Heart
-import com.example.bloodpressure.ui.theme.BPTheme
 
 @Composable
 fun HistoryItem(

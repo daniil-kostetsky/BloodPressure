@@ -1,6 +1,6 @@
 package com.example.bloodpressure.presentation.screens.home
 
-import com.example.bloodpressure.BPItem
+import com.example.bloodpressure.domain.entity.BPItem
 import kotlinx.coroutines.flow.StateFlow
 
 interface HomeComponent { // TODO maybe join add and edit, only change null or not null paraeter

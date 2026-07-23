@@ -1,6 +1,6 @@
 package com.example.bloodpressure.presentation.screens.settings
 
-import com.example.bloodpressure.BPStatus
+import com.example.bloodpressure.domain.entity.BPStatus
 
 interface SettingsStore {
 

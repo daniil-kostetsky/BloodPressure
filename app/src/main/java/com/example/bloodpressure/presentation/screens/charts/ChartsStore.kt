@@ -1,6 +1,6 @@
 package com.example.bloodpressure.presentation.screens.charts
 
-import com.example.bloodpressure.BPStatus
+import com.example.bloodpressure.domain.entity.BPStatus
 
 interface ChartsStore {
 

@@ -1,7 +1,7 @@
 package com.example.bloodpressure.presentation.screens.home
 
 import com.arkivanov.decompose.ComponentContext
-import com.example.bloodpressure.BPItem
+import com.example.bloodpressure.domain.entity.BPItem
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow

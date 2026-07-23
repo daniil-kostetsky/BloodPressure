@@ -1,16 +1,8 @@
 package com.example.bloodpressure.presentation.screens.historyList
 
 import com.arkivanov.decompose.ComponentContext
-import com.arkivanov.decompose.ComponentContextFactory
-import com.arkivanov.essenty.backhandler.BackHandler
-import com.arkivanov.essenty.instancekeeper.InstanceKeeper
-import com.arkivanov.essenty.lifecycle.Lifecycle
-import com.arkivanov.essenty.statekeeper.StateKeeper
-import com.example.bloodpressure.BPItem
-import com.example.bloodpressure.ui.theme.BPTheme
-import kotlinx.coroutines.flow.MutableStateFlow
+import com.example.bloodpressure.domain.entity.BPItem
 import kotlinx.coroutines.flow.StateFlow
-import kotlinx.serialization.SerializationStrategy
 
 class DefaultHistoryListComponent(
     componentContext: ComponentContext,

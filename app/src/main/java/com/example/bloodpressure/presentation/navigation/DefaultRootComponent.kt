@@ -7,7 +7,7 @@ import com.arkivanov.decompose.router.stack.childStack
 import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.decompose.value.Value
-import com.example.bloodpressure.BPItem
+import com.example.bloodpressure.domain.entity.BPItem
 import com.example.bloodpressure.presentation.addEditRecord.DefaultAddEditRecordComponent
 import com.example.bloodpressure.presentation.editRecord.DefaultEditRecordComponent
 import com.example.bloodpressure.presentation.historyList.DefaultHistoryListComponent

@@ -19,9 +19,8 @@ import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.example.bloodpressure.BPItem
-import com.example.bloodpressure.BPStatus
-import com.example.bloodpressure.presentation.screens.addEditRecord.AddEditRecordComponent
+import com.example.bloodpressure.domain.entity.BPItem
+import com.example.bloodpressure.domain.entity.BPStatus
 import com.example.bloodpressure.ui.BPIcons
 import com.example.bloodpressure.ui.BPScreen
 import com.example.bloodpressure.ui.BPStatusItemBig

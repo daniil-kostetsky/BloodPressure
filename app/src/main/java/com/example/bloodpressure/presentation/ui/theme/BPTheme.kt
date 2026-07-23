@@ -1,12 +1,11 @@
 package com.example.bloodpressure.presentation.ui.theme
 
-import androidx.compose.material3.Typography
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.ProvidableCompositionLocal
 import androidx.compose.runtime.ReadOnlyComposable
 import androidx.compose.runtime.staticCompositionLocalOf
-import com.example.bloodpressure.Languages
+import com.example.bloodpressure.domain.entity.Languages
 
 object BPTheme {
 

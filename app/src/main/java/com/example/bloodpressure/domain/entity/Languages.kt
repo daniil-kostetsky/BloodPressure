@@ -1,4 +1,4 @@
-package com.example.bloodpressure
+package com.example.bloodpressure.domain.entity
 
 import kotlinx.serialization.Serializable
 
